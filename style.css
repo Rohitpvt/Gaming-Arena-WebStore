@@ -727,6 +727,32 @@ body {
   color: var(--text-purple);
 }
 
+/* Card container and row styling for proper layout */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  align-items: center;
+  margin-top: 50px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1500px; /* Increased from 1200px for better spread */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* Increased gap for 360px cards */
+  flex-wrap: nowrap; /* Keep all 4 cards in one row */
+  max-width: 1450px; /* Wider row container */
+  width: 100%;
+  padding: 0 20px; /* Add padding for better spacing */
+}
+
+/* Update card styling to work better with the new layout */
 .card {
   width: var(--card-width);
   height: var(--card-height);
@@ -736,8 +762,9 @@ body {
   align-items: flex-end;
   padding: 0 36px;
   perspective: 2500px;
-  margin: 0 50px;
+  margin: 0 8px; /* Reduced margin since we use larger gaps */
   cursor: pointer;
+  flex-shrink: 0; /* Prevent cards from shrinking */
 }
 
 .cover-image {
@@ -770,6 +797,7 @@ body {
   position: absolute;
   left: 0;
 }
+
 .wrapper::before {
   top: 0;
   height: 100%;
@@ -780,6 +808,7 @@ body {
     rgba(12, 13, 19) 97%
   );
 }
+
 .wrapper::after {
   bottom: 0;
   opacity: 1;
@@ -799,10 +828,12 @@ body {
 .card:hover .wrapper::after {
   height: 120px;
 }
+
 .title {
   width: 100%;
   transition: transform 0.5s;
 }
+
 .card:hover .title {
   transform: translate3d(0%, -50px, 100px);
 }
@@ -949,18 +980,54 @@ body {
 }
 
 /*-----------------------------------*\
-  #MEDIA QUERIES
+#MEDIA QUERIES
 \*-----------------------------------*/
+
+/* Additional responsive styles for card layout */
+/* Enhanced responsive design for 360px cards */
+@media (max-width: 1500px) {
+  .card-container {
+    max-width: 1300px;
+    padding: 20px 15px;
+  }
+
+  .card-row {
+    gap: 25px;
+    max-width: 1300px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .card-row {
+    gap: 20px;
+    max-width: 1100px;
+  }
+
+  .card {
+    width: calc(var(--card-width) * 0.95);
+    height: calc(var(--card-height) * 0.95);
+  }
+}
+
+@media (max-width: 1000px) {
+  .card-row {
+    gap: 15px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  }
+
+  .card {
+    width: calc(var(--card-width) * 0.9);
+    height: calc(var(--card-height) * 0.9);
+  }
+}
 
 /**
  * responsive for large than 575px screen
  */
-
 @media (min-width: 575px) {
   /**
    * REUSED STYLE
    */
-
   .container {
     max-width: 540px;
     width: 100%;
@@ -970,7 +1037,6 @@ body {
   /**
    * HEADER
    */
-
   .header .logo img {
     width: 100px;
   }
@@ -978,7 +1044,6 @@ body {
   /**
    * UPCOMING
    */
-
   .upcoming-card.left .card-meta {
     left: auto;
     right: -15%;
@@ -991,7 +1056,6 @@ body {
   /**
    * FOOTER
    */
-
   .footer-top .container {
     grid-template-columns: 1fr 1fr;
   }
@@ -1000,17 +1064,14 @@ body {
 /**
  * responsive for large than 768px screen
  */
-
 @media (min-width: 768px) {
   /**
    * CUSTOM PROPERTY
    */
-
   :root {
     /**
      * TYPOGRAPHY
      */
-
     /* font size */
     --fontSize-1: 6.5rem;
     --fontSize-2: 3.2rem;
@@ -1019,7 +1080,6 @@ body {
   /**
    * REUSED STYLE
    */
-
   .container {
     max-width: 720px;
   }
@@ -1031,7 +1091,6 @@ body {
   /**
    * HERO
    */
-
   .hero .section-subtitle {
     letter-spacing: 10px;
   }
@@ -1050,7 +1109,6 @@ body {
   /**
    * UPCOMING
    */
-
   .upcoming-card::before {
     height: 110px;
   }
@@ -1077,9 +1135,8 @@ body {
   }
 
   /**
-   * NEWS 
+   * NEWS
    */
-
   .news-list {
     grid-template-columns: 1fr 1fr;
   }
@@ -1087,7 +1144,6 @@ body {
   /**
    * CUSTOM CURSOR
    */
-
   .cursor {
     display: block;
     position: fixed;
@@ -1118,31 +1174,26 @@ body {
 /**
  * responsive for large than 992px screen
  */
-
 @media (min-width: 992px) {
   /**
    * CUSTOM PROPERTY
    */
-
   :root {
     /**
      * TYPOGRAPHY
      */
-
     /* font size */
     --fontSize-2: 4.5rem;
 
     /**
      * SPACING
      */
-
     --section-spacing: 100px;
   }
 
   /**
    * REUSED STYLE
    */
-
   .container {
     max-width: 960px;
   }
@@ -1154,7 +1205,6 @@ body {
   /**
    * HEADER
    */
-
   .nav-toggle-btn {
     display: none;
   }
@@ -1182,7 +1232,6 @@ body {
   /**
    * HERO
    */
-
   .hero-banner-bg {
     transform: scale(1.2);
   }
@@ -1190,7 +1239,6 @@ body {
   /**
    * UPCOMING
    */
-
   .upcoming-item {
     display: grid;
     grid-template-columns: 1fr 0.5fr 1fr;
@@ -1214,7 +1262,6 @@ body {
   /**
    * NEWS
    */
-
   .news-list {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1222,7 +1269,6 @@ body {
   /**
    * FOOTER
    */
-
   .footer-top .container {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -1231,12 +1277,10 @@ body {
 /**
  * responsive for large than 1200px screen
  */
-
 @media (min-width: 1200px) {
   /**
    * REUSED STYLE
    */
-
   .container {
     max-width: 1140px;
   }
@@ -1248,7 +1292,6 @@ body {
   /**
    * HERO
    */
-
   .hero {
     padding-block-start: 250px;
   }
@@ -1265,7 +1308,6 @@ body {
   /**
    * UPCOMING
    */
-
   .upcoming-card .card-banner {
     max-height: 180px;
     width: auto;
@@ -1286,9 +1328,8 @@ body {
   /**
    * FOOTER
    */
-
   .footer-top .container {
-    grid-template-columns: 1f 0.5fr 0.5fr 1fr;
+    grid-template-columns: 1fr 0.5fr 0.5fr 1fr;
   }
 
   .footer .logo img {
