@@ -16,7 +16,7 @@
     />
 
     <!-- 
-    - favicon
+    - logo meta tags
   -->
     <link
       rel="shortcut icon"
@@ -132,15 +132,11 @@
 
         <section
           class="section upcoming"
-          aria-labelledby="upcoming-label"
+          aria-label="upcoming match"
           id="store"
         >
           <div class="container">
-            <p
-              class="section-subtitle"
-              id="upcoming-label"
-              data-reveal="bottom"
-            >
+            <p class="section-subtitle" data-reveal="bottom">
               Upcoming Matches
             </p>
 
@@ -154,8 +150,26 @@
               willing to take their skills to the next level.
             </p>
 
-            <ol class="upcoming-list">
-              <li class="upcoming-item">
+            <div class="card-container">
+              <!-- First row of cards -->
+              <div class="card-row">
+                <div class="card">
+                  <div class="wrapper">
+                    <img
+                      src="./assets/images/dark_rider-cover.jpg"
+                      class="cover-image"
+                    />
+                  </div>
+                  <img
+                    src="./assets/images/dark_rider-title.png"
+                    class="title"
+                  />
+                  <img
+                    src="./assets/images/dark_rider-character.webp"
+                    class="character"
+                  />
+                </div>
+
                 <div class="card">
                   <div class="wrapper">
                     <img
@@ -206,6 +220,10 @@
                     class="character"
                   />
                 </div>
+              </div>
+
+              <!-- Second row of cards -->
+              <div class="card-row">
                 <div class="card">
                   <div class="wrapper">
                     <img
@@ -222,6 +240,7 @@
                     class="character"
                   />
                 </div>
+
                 <div class="card">
                   <div class="wrapper">
                     <img
@@ -255,12 +274,25 @@
                     class="character"
                   />
                 </div>
-              </li>
-              <!--
-              <li class="upcoming-item"></li>
-              <li class="upcoming-item"></li>
-              -->
-            </ol>
+
+                <div class="card">
+                  <div class="wrapper">
+                    <img
+                      src="./assets/images/dark_rider-cover.jpg"
+                      class="cover-image"
+                    />
+                  </div>
+                  <img
+                    src="./assets/images/dark_rider-title.png"
+                    class="title"
+                  />
+                  <img
+                    src="./assets/images/dark_rider-character.webp"
+                    class="character"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
