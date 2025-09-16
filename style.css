@@ -537,28 +537,8 @@ body {
   border-radius: var(--radius-5);
 }
 
-.upcoming-card.left::before {
-  right: 0;
-  clip-path: var(--clip-path-4);
-}
-
-.upcoming-card.right::before {
-  left: 0;
-  clip-path: var(--clip-path-6);
-}
-
 .upcoming-card .card-title {
   text-transform: uppercase;
-}
-
-.upcoming-card.left .card-title {
-  margin-inline-end: 50px;
-  text-align: right;
-}
-
-.upcoming-card.right .card-title {
-  margin-inline-start: 50px;
-  text-align: left;
 }
 
 .upcoming-card .card-meta {
@@ -573,14 +553,6 @@ body {
   font-weight: var(--weight-semiBold);
   text-transform: uppercase;
   border-radius: var(--radius-3);
-}
-
-.upcoming-card.left .card-meta {
-  clip-path: var(--clip-path-5);
-}
-
-.upcoming-card.right .card-meta {
-  clip-path: var(--clip-path-7);
 }
 
 .upcoming-card .card-banner {
@@ -849,6 +821,19 @@ body {
 .card:hover .character {
   opacity: 1;
   transform: translate3d(0%, -30%, 100px);
+}
+
+.car {
+  height: 190px;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.card:hover .car {
+  opacity: 1;
+  transform: translate3d(0%, -80%, 100px);
 }
 /*-----------------------------------*\
   #FOOTER
