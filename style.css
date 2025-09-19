@@ -920,6 +920,32 @@ body {
   transform: translate3d(0%, -30%, 100px);
 }
 
+.character-retro-break {
+  height: 100px;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.card:hover .character-retro-break {
+  opacity: 1;
+  transform: translate3d(0%, -100%, 100px);
+}
+
+.character-retro-tower {
+  height: 170px;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.card:hover .character-retro-tower {
+  opacity: 1;
+  transform: translate3d(0%, -30%, 100px);
+}
+
 .retro-games-section .card {
   width: 250px !important;
   height: 250px !important;
