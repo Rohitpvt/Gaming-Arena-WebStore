@@ -473,6 +473,84 @@ body {
   border-block-end: 1px solid var(--border-space-cadet);
 }
 
+/* Header icon buttons styling */
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-btn {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  background: transparent;
+  border: 2px solid var(--border-purple-alpha-30);
+  border-radius: var(--radius-circle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-white);
+  font-size: 2rem;
+  transition: var(--transition-1);
+  overflow: hidden;
+}
+
+.icon-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: var(--bg-purple);
+  border-radius: var(--radius-circle);
+  transform: translate(-50%, -50%);
+  transition: var(--transition-2);
+  z-index: -1;
+}
+
+.icon-btn:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.icon-btn:hover {
+  border-color: var(--bg-purple);
+  color: var(--text-white);
+  transform: translateY(-2px);
+}
+
+.icon-btn ion-icon {
+  pointer-events: none;
+  transition: var(--transition-1);
+}
+
+.icon-btn:hover ion-icon {
+  transform: scale(1.1);
+}
+
+/* Specific button hover effects */
+.wishlist-btn:hover {
+  border-color: #ff4757;
+}
+
+.wishlist-btn:hover::before {
+  background-color: #ff4757;
+}
+
+.profile-btn:hover {
+  border-color: var(--bg-purple);
+}
+
+.cart-btn:hover {
+  border-color: #2ed573;
+}
+
+.cart-btn:hover::before {
+  background-color: #2ed573;
+}
+
 /*-----------------------------------*\
   #HERO
 \*-----------------------------------*/
@@ -721,7 +799,8 @@ body {
   flex-wrap: nowrap; /* Keep all 4 cards in one row */
   max-width: 1450px; /* Wider row container */
   width: 100%;
-  padding: 0 20px; /* Add padding for better spacing */
+  padding: 0 20px;
+  /* Add padding for better spacing */
 }
 
 /* Update card styling to work better with the new layout */
@@ -736,7 +815,8 @@ body {
   perspective: 2500px;
   margin: 0 8px; /* Reduced margin since we use larger gaps */
   cursor: pointer;
-  flex-shrink: 0; /* Prevent cards from shrinking */
+  flex-shrink: 0;
+  /* Prevent cards from shrinking */
 }
 
 .cover-image {
@@ -835,6 +915,35 @@ body {
   opacity: 1;
   transform: translate3d(0%, -80%, 100px);
 }
+
+.character-retro {
+  height: 230px;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.card:hover .character-retro {
+  opacity: 1;
+  transform: translate3d(0%, -30%, 100px);
+}
+
+.retro-games-section .card {
+  width: 250px !important;
+  height: 250px !important;
+}
+
+.retro-games-section .wrapper {
+  width: 250px;
+  height: 250px;
+}
+
+.retro-games-section .cover-image {
+  width: 250px;
+  height: 250px;
+}
+
 /*-----------------------------------*\
   #FOOTER
 \*-----------------------------------*/
