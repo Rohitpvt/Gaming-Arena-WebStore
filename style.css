@@ -920,20 +920,20 @@ body {
   transform: translate3d(0%, -30%, 100px);
 }
 
-.character-retro-break {
-  height: 100px;
+.character-break {
+  height: 95px;
   opacity: 0;
   transition: all 0.5s;
   position: absolute;
   z-index: -1;
 }
 
-.card:hover .character-retro-break {
+.card:hover .character-break {
   opacity: 1;
   transform: translate3d(0%, -100%, 100px);
 }
 
-.character-retro-tower {
+.character-tower {
   height: 170px;
   opacity: 0;
   transition: all 0.5s;
@@ -941,9 +941,35 @@ body {
   z-index: -1;
 }
 
-.card:hover .character-retro-tower {
+.card:hover .character-tower {
   opacity: 1;
   transform: translate3d(0%, -30%, 100px);
+}
+
+.character-fruit {
+  height: 280px;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.card:hover .character-fruit {
+  opacity: 1;
+  transform: translate3d(0%, -2%, 100px);
+}
+
+.character-memory {
+  height: 240px;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.card:hover .character-memory {
+  opacity: 1;
+  transform: translate3d(0%, -10%, 100px);
 }
 
 .retro-games-section .card {
