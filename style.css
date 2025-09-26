@@ -1109,6 +1109,112 @@ body {
 }
 
 /*-----------------------------------*\
+  #PROFILE DROPDOWN
+\*-----------------------------------*/
+
+/* Profile Dropdown Menu */
+.profile-dropdown {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  animation: profileDropdownSlide 0.3s ease-out;
+  min-width: 280px;
+}
+
+@keyframes profileDropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-dropdown-content {
+  padding: 15px 0;
+}
+
+.profile-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.profile-user-info ion-icon {
+  font-size: 32px;
+  opacity: 0.9;
+}
+
+.profile-user-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.profile-user-info strong {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.profile-user-info small {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.profile-dropdown hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 0;
+}
+
+.profile-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.profile-menu-item:hover {
+  background: #f8f9fa;
+  color: #667eea;
+}
+
+.profile-menu-item ion-icon {
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+.profile-menu-item.logout-item {
+  color: #dc3545;
+}
+
+.profile-menu-item.logout-item:hover {
+  background: #fee;
+  color: #dc3545;
+}
+
+/* Profile button active state */
+.profile-btn.logged-in ion-icon {
+  color: #667eea;
+}
+
+/*-----------------------------------*\
   #CUSTOM CURSOR
 \*-----------------------------------*/
 
