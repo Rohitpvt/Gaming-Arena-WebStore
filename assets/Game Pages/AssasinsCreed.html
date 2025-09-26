@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assassin’s Creed Shadows - Store Page</title>
+  <link rel="icon" type="image/png" href="https://images.cults3d.com/AgAc1Z7i3tOdvKvVbgbVbfri_Xw=/516x516/filters:no_upscale()/https://fbi.cults3d.com/uploaders/35272503/illustration-file/27aa7d5a-b308-4920-be55-21120135f639/Assassin's-creed-Shadows.png">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ---------- Navbar ---------- */
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: rgba(15, 15, 15, 0.95);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      padding: 12px 20px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0; padding: 0;
+    }
+    nav a {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #f0f0f0;
+      padding: 6px 10px;
+      transition: 0.3s;
+    }
+    nav a:hover, nav a.active {
+      color: #ff0000;
+    }
+
+    /* ---------- Header Title ---------- */
+    .page-header {
+      margin-top: 30px;
+      text-align: center;
+      padding: 20px 20px 20px;
+      background: linear-gradient(to bottom, #111, #0a0a0a);
+    }
+    .page-header h1 {
+      margin: 0;
+      font-size: 3em;
+      font-weight: 800;
+      color: #fefefe;
+      letter-spacing: 1px;
+    }
+
+    /* ---------- Hero Trailer ---------- */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 90vh;
+      overflow: hidden;
+    }
+    .hero iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ---------- Container ---------- */
+    .container { max-width: 1200px; margin: auto; padding: 60px 20px; }
+    section { margin-bottom: 80px; }
+    h2 {
+      font-size: 2.4em;
+      margin-bottom: 20px;
+      border-left: 6px solid #ff0000;
+      padding-left: 12px;
+    }
+
+    /* ---------- About ---------- */
+    .about {
+      background: #121212;
+      padding: 40px;
+      border-radius: 12px;
+      line-height: 1.7;
+    }
+    .about h3 {
+      color: #ff0000;
+      margin-top: 25px;
+    }
+    .about p { margin-bottom: 15px; color: #ddd; }
+
+    /* ---------- Specs ---------- */
+    .specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .spec-box {
+      flex: 1;
+      min-width: 350px;
+      background: #121212;
+      padding: 25px;
+      border-radius: 12px;
+    }
+    .spec-box h3 { margin-bottom: 10px; color: #ff0000; }
+
+    /* ---------- Screenshots ---------- */
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+    }
+    .screenshots img {
+      width: 100%;
+      border-radius: 12px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .screenshots img:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 25px #ff0000;
+    }
+
+    /* ---------- Reviews ---------- */
+    .review {
+      background: #181818;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-left: 4px solid #ff0000;
+      border-radius: 8px;
+      font-style: italic;
+    }
+    .review span { color: #ff0000; font-weight: bold; }
+
+    /* ---------- Store Links ---------- */
+    .links { text-align: center; margin-top: 70px; }
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #1a1a1a;
+      padding: 14px 28px;
+      margin: 10px;
+      border-radius: 10px;
+      color: white;
+      font-size: 1.1em;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .store-btn img { width: 28px; height: 28px; }
+    .store-btn:hover {
+      background: #ff0000;
+      color: #000;
+      transform: scale(1.08);
+    }
+
+    footer {
+      background: #0f0f0f;
+      padding: 20px;
+      text-align: center;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#specs">Specs</a></li>
+      <li><a href="#screenshots">Screenshots</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#buy">Buy</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1>Assassin’s Creed Shadows</h1>
+  </header>
+
+  <!-- Hero Trailer -->
+  <div class="hero">
+    <iframe src="https://www.youtube.com/embed/vovkzbtYBC8?si=6KLK0V6v8Y0rSO9i"
+      allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+
+  <!-- Content -->
+  <div class="container">
+
+    <!-- About -->
+    <section id="about">
+      <h2>📖 About the Game</h2>
+      <div class="about">
+        <h3>Welcome to Feudal Japan</h3>
+        <p>Live the intertwined stories of <b>Naoe</b>, an adept shinobi assassin from Iga Province, and <b>Yasuke</b>, the legendary African samurai. Against the backdrop of the turbulent late Sengoku period, this duo must fight for their own destinies and usher in a new era for Japan.</p>
+
+        <h3>A New Creed Rises</h3>
+        <p>Straddling stealth and might, Shadows lets you slip through the darkness as Naoe or stand resolute as Yasuke. The game features non-linear missions, environmental interactivity, and dynamic lighting that evolves with time and seasons.</p>
+
+        <h3>Dual Protagonist Gameplay</h3>
+        <p>Play as Naoe, agile and stealthy, trained in ninjutsu and shadow techniques, or Yasuke, a fearsome warrior with raw strength and samurai combat skills. Switch between them to exploit their unique strengths.</p>
+
+        <h3>Dynamic World</h3>
+        <p>Explore castles, villages, and serene shrines across Iga, Kyoto, Osaka, and beyond. Seasons and weather directly impact gameplay — frozen rivers open new stealth paths in winter, while lush forests conceal enemies in summer.</p>
+
+        <h3>Enhanced Systems & Features</h3>
+        <p>- New prone crawling for stealthy approaches.<br>
+           - Manipulate shadows and light for tactical advantage.<br>
+           - Destructible environments and grappling for vertical traversal.<br>
+           - “Observe” mode for scanning targets and routes.<br>
+           - Integrated historical codex for cultural context.</p>
+
+        <h3>Claws of Awaji Expansion</h3>
+        <p>Embark on an extended journey to the island of Awaji, with over 10 hours of new content. Discover hidden treasures, unlock exclusive weapons and skills, and confront new threats.</p>
+
+        <h3>Immersive Atmosphere</h3>
+        <p>Every encounter feels alive thanks to cinematic combat, realistic NPC interactions, and next-gen environmental detail. From sakura blossoms drifting across temple courtyards to raging battles on stormy seas, Feudal Japan is realized like never before.</p>
+      </div>
+    </section>
+
+    <!-- Specs -->
+    <section id="specs">
+      <h2>🖥️ System Requirements</h2>
+      <div class="specs">
+        <div class="spec-box">
+          <h3>Minimum</h3>
+          <ul>
+            <li>OS: Windows 10 (64-bit)</li>
+            <li>Processor: Intel Core i5 or AMD Ryzen 5</li>
+            <li>Memory: 8 GB RAM</li>
+            <li>Graphics: NVIDIA GTX 1060 / AMD RX 580</li>
+            <li>Storage: 100 GB SSD</li>
+          </ul>
+        </div>
+        <div class="spec-box">
+          <h3>Recommended</h3>
+          <ul>
+            <li>OS: Windows 11</li>
+            <li>Processor: Intel Core i7 or AMD Ryzen 7</li>
+            <li>Memory: 16 GB RAM</li>
+            <li>Graphics: NVIDIA RTX 3060 / AMD RX 6700 XT</li>
+            <li>Storage: 100 GB SSD</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section id="screenshots">
+      <h2>📸 Screenshots</h2>
+      <div class="screenshots">
+        <img src="https://images.steamusercontent.com/ugc/18062122440006726594/9291A9EE073484EA6586C8F24E83CB88FFB4A3F6/?imw=1920&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false">
+        <img src="https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/6llLuB8aMB0MnrrFa8aywc/a8664485368f24ecde08d9fd1b6327f1/AC_Shadows_Fan_Kit_Wallpapers_Horizontal-Faceoff.jpg">
+        <img src="https://images.steamusercontent.com/ugc/9272437635106244571/CC91A50EBC73F4DA6D0F5A43392E7340D01A6C09/?imw=1920&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false">
+        <img src="https://images.steamusercontent.com/ugc/15415650882069277502/A50BDC9CF84A398F7DE45B3380BB20978DBDA89E/?imw=1920&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false">
+        <img src="https://images.steamusercontent.com/ugc/12261584910750910154/91342DB3E4C527748065048EA0649061A2C31FAC/?imw=1920&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false">
+        <img src="https://images.steamusercontent.com/ugc/15305629791960435/DA13D893996AD35ED1DBA42DAA5CECA7B4E3C2E1/?imw=1920&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false">
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews">
+      <h2>⭐ Early Impressions</h2>
+      <div class="review">“The most ambitious Assassin’s Creed yet.” — <span>GameSpot</span></div>
+      <div class="review">“A stunning recreation of Feudal Japan.” — <span>IGN</span></div>
+      <div class="review">“Dual protagonists add incredible depth.” — <span>PC Gamer</span></div>
+    </section>
+
+    <!-- Store Links -->
+    <section id="buy">
+      <h2>🛒 Buy Now</h2>
+      <div class="links">
+        <a class="store-btn" href="https://store.ubisoft.com/us/assassins-creed-shadows">
+            <img src="https://companieslogo.com/img/orig/UBI.PA.D-ca008813.png?t=1720244494"> Ubisoft Store</a>
+        <a class="store-btn" href="https://store.epicgames.com/en-US/p/assassins-creed-shadows">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Epic_Games_logo.svg"> Epic Games</a>
+        <a class="store-btn" href="https://store.steampowered.com/app/assassins-creed-shadows">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg"> Steam</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>@2025 ROHIT GHOSH | VISHAL SHARMA | VAIBHAV SAHU | APURVA ANUPAM</footer>
+</body>
+</html>

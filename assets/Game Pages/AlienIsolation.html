@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alien: Isolation - Store Page</title>
+
+    <!-- Page Icon (Favicon) -->
+    <link rel="icon" type="image/png"
+        href="https://cdn2.steamgriddb.com/icon_thumb/78cbed4fe8f2183ff46d7fe89d8adc8b.png" />
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: #0a0a0a;
+            color: #f0f0f0;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ---------- Navbar ---------- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 12px 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #f0f0f0;
+            padding: 6px 10px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #39ff14;
+        }
+
+        /* ---------- Header Title ---------- */
+        .page-header {
+            margin-top: 30px;
+            text-align: center;
+            padding: 20px 20px 20px;
+            background: linear-gradient(to bottom, #111, #0a0a0a);
+        }
+
+        .page-header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 800;
+            color: #fefefe;
+            letter-spacing: 1px;
+        }
+
+        /* ---------- Hero Trailer ---------- */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 90vh;
+            overflow: hidden;
+        }
+
+        .hero iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ---------- Container ---------- */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-size: 2.4em;
+            margin-bottom: 20px;
+            border-left: 6px solid #39ff14;
+            padding-left: 12px;
+        }
+
+        /* ---------- About + Info (Two-Column) ---------- */
+        .about-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .about {
+            flex: 2;
+            background: #121212;
+            padding: 40px;
+            border-radius: 12px;
+            line-height: 1.7;
+        }
+
+        .about h3 {
+            color: #39ff14;
+            margin-top: 25px;
+        }
+
+        .about p {
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+
+        .game-info {
+            flex: 1;
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 12px;
+            color: #ddd;
+        }
+
+        .game-info h3 {
+            color: #39ff14;
+            margin-bottom: 15px;
+        }
+
+        .game-info ul {
+            list-style: none;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        .game-info li span {
+            color: #39ff14;
+            font-weight: bold;
+        }
+
+        /* ---------- Specs ---------- */
+        .specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .spec-box {
+            flex: 1;
+            min-width: 350px;
+            background: #121212;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .spec-box h3 {
+            margin-bottom: 10px;
+            color: #39ff14;
+        }
+
+        /* ---------- Screenshots ---------- */
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .screenshots img {
+            width: 100%;
+            border-radius: 12px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .screenshots img:hover {
+            transform: scale(1.07);
+            box-shadow: 0 0 25px #39ff14;
+        }
+
+        /* ---------- Reviews ---------- */
+        .review {
+            background: #181818;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #39ff14;
+            border-radius: 8px;
+            font-style: italic;
+        }
+
+        .review span {
+            color: #39ff14;
+            font-weight: bold;
+        }
+
+        /* ---------- Wishlist Button (Header) ---------- */
+        .wishlist-btn {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #222;
+            padding: 8px 16px;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.95em;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .wishlist-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .wishlist-btn:hover {
+            background: #39ff14;
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        /* ---------- Store Links ---------- */
+        .links {
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #1a1a1a;
+            padding: 14px 28px;
+            margin: 10px;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .store-btn img {
+            width: 28px;
+            height: 28px;
+        }
+
+        .store-btn:hover {
+            background: #39ff14;
+            color: #000;
+            transform: scale(1.08);
+        }
+
+        footer {
+            background: #0f0f0f;
+            padding: 20px;
+            text-align: center;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#specs">Specs</a></li>
+            <li><a href="#screenshots">Screenshots</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#buy">Buy</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header" style="position:relative;">
+        <h1>Alien: Isolation</h1>
+        <button class="wishlist-btn">
+            <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png"> Add to Wishlist
+        </button>
+    </header>
+
+    <!-- Hero Trailer -->
+    <div class="hero">
+        <iframe src="https://www.youtube.com/embed/7h0cgmvIrZw?si=uIe1WzYjJRZpqlb-" allow="autoplay; encrypted-media"
+            allowfullscreen></iframe>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+
+        <!-- About + Info -->
+        <section id="about">
+            <h2>📖 About the Game</h2>
+            <div class="about-wrapper">
+
+                <!-- About (Left) -->
+                <div class="about">
+                    <h3>Survive the Horror</h3>
+                    <p>Fifteen years after the events of Alien, Ellen Ripley’s daughter, Amanda, enters a desperate
+                        battle for survival on Sevastopol Station. Alone and unprepared, she must scavenge resources,
+                        hack systems, and improvise solutions to survive.</p>
+
+                    <h3>Unpredictable Alien</h3>
+                    <p>Experience true survival horror as you are hunted relentlessly by a dynamic and adaptive Alien
+                        that reacts to your every move. No encounter is ever the same.</p>
+
+                    <h3>Stealth and Strategy</h3>
+                    <p>Use limited resources wisely. Craft tools, distract enemies, and outthink threats to stay alive.
+                        Every decision matters when death is always a heartbeat away.</p>
+
+                    <h3>Immersive World</h3>
+                    <p>Sevastopol Station is a labyrinth of decaying corridors and haunted chambers. Every shadow could
+                        hide danger, every flicker of light could mean the Alien is near.</p>
+
+                    <h3>Authentic Atmosphere</h3>
+                    <p>Built to reflect Ridley Scott’s original 1979 vision, the game uses retro-futuristic technology,
+                        analog screens, and haunting soundscapes to immerse you in a terrifying universe.</p>
+                </div>
+
+                <!-- Game Info (Right) -->
+                <div class="game-info">
+                    <h3>🎮 Game Info</h3>
+                    <ul>
+                        <li><span>Release Date:</span> October 6, 2014</li>
+                        <li><span>Developer:</span> Creative Assembly</li>
+                        <li><span>Publisher:</span> SEGA</li>
+                        <li><span>Genre:</span> Survival Horror, Stealth</li>
+                        <li><span>Mode:</span> Single-player</li>
+                        <li><span>Platforms:</span> PC, PS4, PS5, Xbox One, Switch</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Specs -->
+        <section id="specs">
+            <h2>🖥️ System Requirements</h2>
+            <div class="specs">
+                <div class="spec-box">
+                    <h3>Minimum</h3>
+                    <ul>
+                        <li>OS: Windows 7 (64-bit)</li>
+                        <li>Processor: Intel Core 2 Duo E8500 / AMD Athlon X2 6400+</li>
+                        <li>Memory: 4 GB RAM</li>
+                        <li>Graphics: NVIDIA GTX 550 Ti / AMD Radeon HD 5770</li>
+                        <li>Storage: 35 GB HDD</li>
+                    </ul>
+                </div>
+                <div class="spec-box">
+                    <h3>Recommended</h3>
+                    <ul>
+                        <li>OS: Windows 10</li>
+                        <li>Processor: Intel Core i7-3770 / AMD FX-8350</li>
+                        <li>Memory: 8 GB RAM</li>
+                        <li>Graphics: NVIDIA GTX 970 / AMD R9 280X</li>
+                        <li>Storage: 35 GB SSD</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screenshots -->
+        <section id="screenshots">
+            <h2>📸 Screenshots</h2>
+            <div class="screenshots">
+                <img
+                    src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/214490/ss_5ff8ca35914eca8f51f3303cf5d94a9f85279e2a.600x338.jpg?t=1728557065">
+                <img
+                    src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/214490/ss_c57e1d21eca518001e25e83f271c20448683d082.600x338.jpg?t=1728557065">
+                <img
+                    src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/214490/ss_e514869415e3bd913be3f6c0e419cea9f0be17a3.600x338.jpg?t=1728557065">
+                <img
+                    src="https://images.steamusercontent.com/ugc/17169245455518952934/AC9C7B0CD58E8C6827AA47B8EED0CABD1DD571F1/?imw=1920&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false">
+                <img
+                    src="https://www.avpgalaxy.net/wordpress/wp-content/webp-express/webp-images/doc-root/wordpress/wp-content/uploads/2020/11/alien-isolation-screenshot-016-1920x1084.jpg.webp">
+                <img
+                    src="https://images.steamusercontent.com/ugc/18215465381109568256/AE6E40F9C5BD4C868D57483B3FD94E14B15F93BD/?imw=1920&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false">
+            </div>
+        </section>
+
+        <!-- Reviews -->
+        <section id="reviews">
+            <h2>⭐ Reviews</h2>
+            <div class="review">“The best Alien game ever made — terrifying and brilliant.” — <span>IGN</span></div>
+            <div class="review">“Relentless, atmospheric, and nail-bitingly tense.” — <span>GameSpot</span></div>
+            <div class="review">“A masterpiece of survival horror.” — <span>PC Gamer</span></div>
+        </section>
+
+        <!-- Store Links + Wishlist -->
+        <section id="buy">
+            <h2>🛒 Buy Now</h2>
+            <div class="links">
+                <a class="store-btn" href="https://store.steampowered.com/app/214490/Alien_Isolation/">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg"> Steam</a>
+                <a class="store-btn" href="https://store.epicgames.com/en-US/p/alien-isolation">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Epic_Games_logo.svg"> Epic Games</a>
+                <a class="store-btn" href="https://www.gog.com/game/alien_isolation">
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/GOG.com_logo_white.svg/1123px-GOG.com_logo_white.svg.png">
+                    GOG</a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>@2025 ROHIT GHOSH | VISHAL SHARMA | VAIBHAV SAHU | APURVA ANUPAM</footer>
+</body>
+
+</html>

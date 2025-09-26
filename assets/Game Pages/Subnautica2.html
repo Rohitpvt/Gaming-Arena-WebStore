@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subnautica 2 - Store Page</title>
+  <link rel="icon" type="image/png" href="https://cdn.cloudflare.steamstatic.com/steam/apps/1282100/header.jpg" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ---------- Navbar ---------- */
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: rgba(15, 15, 15, 0.95);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      padding: 12px 20px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0; padding: 0;
+    }
+    nav a {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #f0f0f0;
+      padding: 6px 10px;
+      transition: 0.3s;
+    }
+    nav a:hover, nav a.active {
+      color: #00bfff;
+    }
+
+    /* ---------- Header Title ---------- */
+    .page-header {
+      margin-top: 30px;
+      text-align: center;
+      padding: 20px 20px 20px;
+      background: linear-gradient(to bottom, #111, #0a0a0a);
+    }
+    .page-header h1 {
+      margin: 0;
+      font-size: 3em;
+      font-weight: 800;
+      color: #fefefe;
+      letter-spacing: 1px;
+    }
+
+    /* ---------- Hero Trailer ---------- */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 90vh;
+      overflow: hidden;
+    }
+    .hero iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ---------- Container ---------- */
+    .container { max-width: 1200px; margin: auto; padding: 60px 20px; }
+    section { margin-bottom: 80px; }
+    h2 {
+      font-size: 2.4em;
+      margin-bottom: 20px;
+      border-left: 6px solid #00bfff;
+      padding-left: 12px;
+    }
+
+    /* ---------- About ---------- */
+    .about {
+      background: #121212;
+      padding: 40px;
+      border-radius: 12px;
+      line-height: 1.7;
+    }
+    .about h3 {
+      color: #00bfff;
+      margin-top: 25px;
+    }
+    .about p { margin-bottom: 15px; color: #ddd; }
+
+    /* ---------- Specs ---------- */
+    .specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .spec-box {
+      flex: 1;
+      min-width: 350px;
+      background: #121212;
+      padding: 25px;
+      border-radius: 12px;
+    }
+    .spec-box h3 { margin-bottom: 10px; color: #00bfff; }
+
+    /* ---------- Screenshots ---------- */
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+    }
+    .screenshots img {
+      width: 100%;
+      border-radius: 12px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .screenshots img:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 25px #00bfff;
+    }
+
+    /* ---------- Reviews ---------- */
+    .review {
+      background: #181818;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-left: 4px solid #00bfff;
+      border-radius: 8px;
+      font-style: italic;
+    }
+    .review span { color: #00bfff; font-weight: bold; }
+
+    /* ---------- Store Links ---------- */
+    .links { text-align: center; margin-top: 70px; }
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #1a1a1a;
+      padding: 14px 28px;
+      margin: 10px;
+      border-radius: 10px;
+      color: white;
+      font-size: 1.1em;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .store-btn img { width: 28px; height: 28px; }
+    .store-btn:hover {
+      background: #00bfff;
+      color: #000;
+      transform: scale(1.08);
+    }
+
+    footer {
+      background: #0f0f0f;
+      padding: 20px;
+      text-align: center;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#specs">Specs</a></li>
+      <li><a href="#screenshots">Screenshots</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#buy">Buy</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1>Subnautica 2</h1>
+  </header>
+
+  <!-- Hero Trailer -->
+  <div class="hero">
+    <iframe src="https://www.youtube.com/embed/MDO_VxUSOGI?si=yaABPwrPIWcrBqlc"
+      allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+
+  <!-- Content -->
+  <div class="container">
+
+    <!-- About -->
+    <section id="about">
+      <h2>📖 About the Game</h2>
+      <div class="about">
+        <h3>Dive Deeper</h3>
+        <p>Return to Planet 4546B in <b>Subnautica 2</b>, where new mysteries lurk in the darkest trenches and alien ecosystems evolve before your eyes. Build, survive, and uncover secrets beneath the ocean waves.</p>
+
+        <h3>New Biomes</h3>
+        <p>Explore environments unlike anything from the first game: bioluminescent abyssal plains, geothermal vents, shifting ice caverns, and lush coral sanctuaries teeming with new lifeforms.</p>
+
+        <h3>Survival Evolved</h3>
+        <p>Manage hunger, thirst, and oxygen while adapting to aggressive predators and harsh climates. Craft new high-tech gear, from thermal suits to deep-diving submersibles, to push the boundaries of exploration.</p>
+
+        <h3>Multiplayer Expedition</h3>
+        <p>For the first time, team up with friends in cooperative play. Coordinate dives, share resources, and survive the alien deep together — or split tasks between base-building, resource gathering, and exploration.</p>
+
+        <h3>Dynamic Ocean</h3>
+        <p>The ocean is alive and ever-changing: currents shift, storms rage, and ecosystems evolve dynamically with your actions. Every dive feels unique, with new opportunities and challenges.</p>
+
+        <h3>Expanded Story</h3>
+        <p>Unravel the mystery of ancient alien ruins and uncover a narrative that ties deeper into the fate of the Precursors, the Kharaa bacterium, and humanity’s future among the stars.</p>
+      </div>
+    </section>
+
+    <!-- Specs -->
+    <section id="specs">
+      <h2>🖥️ System Requirements</h2>
+      <div class="specs">
+        <div class="spec-box">
+          <h3>Minimum</h3>
+          <ul>
+            <li>OS: Windows 10 (64-bit)</li>
+            <li>Processor: Intel Core i5 or AMD Ryzen 5</li>
+            <li>Memory: 8 GB RAM</li>
+            <li>Graphics: NVIDIA GTX 1050 Ti / AMD RX 570</li>
+            <li>Storage: 40 GB SSD</li>
+          </ul>
+        </div>
+        <div class="spec-box">
+          <h3>Recommended</h3>
+          <ul>
+            <li>OS: Windows 11</li>
+            <li>Processor: Intel Core i7 or AMD Ryzen 7</li>
+            <li>Memory: 16 GB RAM</li>
+            <li>Graphics: NVIDIA RTX 3060 / AMD RX 6700 XT</li>
+            <li>Storage: 40 GB SSD</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section id="screenshots">
+      <h2>📸 Screenshots</h2>
+      <div class="screenshots">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1962700/ss_00c2b6b9b8cbc8be385a9853a0b1d98f68568f4e.600x338.jpg?t=1756333300">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1962700/ss_a1263dc1671eec9d9baed1661de74cf13d7b417b.600x338.jpg?t=1756333300">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1962700/ss_075004b5e629b213b20fb8769ee10971a1b617a2.600x338.jpg?t=1756333300">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1962700/ss_2159121cd62f5b9198503338e0f6b1d18d3ded88.600x338.jpg?t=1756333300">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1962700/ss_824940ca39301e3b3675faa7d1b0f144a23f253c.600x338.jpg?t=1756333300">
+        <img src="https://wstatic-prod-boc.krafton.com/SN2-8a57/20250519/38iR80Zb.jpg">
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews">
+      <h2>⭐ Early Impressions</h2>
+      <div class="review">“A breathtaking dive into the unknown.” — <span>IGN</span></div>
+      <div class="review">“The ocean feels more alive than ever.” — <span>GameSpot</span></div>
+      <div class="review">“Multiplayer changes everything — an incredible sequel.” — <span>PC Gamer</span></div>
+    </section>
+
+    <!-- Store Links -->
+    <section id="buy">
+      <h2>🛒 Buy Now</h2>
+      <div class="links">
+        <a class="store-btn" href="https://store.steampowered.com/app/1962700/Subnautica_2/">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg"> Steam</a>
+        <a class="store-btn" href="https://www.xbox.com/games/store/subnautica-2/9PJPCB188SVG/">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/Xbox-Emblem.png"> XBOX</a>
+        <a class="store-btn" href="https://store.epicgames.com/p/subnautica-2-d27f94">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Epic_Games_logo.svg"> Epic Games</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>@2025 ROHIT GHOSH | VISHAL SHARMA | VAIBHAV SAHU | APURVA ANUPAM</footer>
+</body>
+</html>
