@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub - Player Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+        :root {
+          /**
+           * COLORS
+           */
+
+          /* background color */
+          --bg-purple: hsla(267, 100%, 63%, 1);
+          --bg-purple-alpha-30: hsla(267, 100%, 63%, 0.3);
+          --bg-dark-purple: hsla(279, 42%, 9%, 1);
+          --bg-oxford-blue: hsla(240, 63%, 13%, 1);
+          --bg-oxford-blue-alpha-95: hsla(240, 63%, 13%, 0.95);
+          --bg-oxford-blue-alpha-90: hsla(240, 63%, 13%, 0.9);
+          --bg-oxford-blue-alpha-80: hsla(240, 63%, 13%, 0.8);
+
+          /* gradient color */
+          --gradient-1: linear-gradient(
+            to right bottom,
+            hsl(299, 100%, 52%),
+            hsl(291, 100%, 58%),
+            hsl(283, 100%, 60%),
+            hsl(273, 100%, 62%),
+            hsl(262, 100%, 63%),
+            hsl(242, 100%, 69%),
+            hsl(223, 100%, 62%),
+            hsl(210, 100%, 50%),
+            hsl(203, 100%, 50%),
+            hsl(198, 100%, 50%),
+            hsl(192, 100%, 48%),
+            hsl(185, 90%, 48%)
+          );
+          --gradient-2: linear-gradient(
+            90deg,
+            transparent 0%,
+            #9841ff 50%,
+            transparent 100%
+          );
+
+          /* text color */
+          --text-white: hsla(0, 0%, 100%, 1);
+          --text-gainsboro: hsla(0, 0%, 87%, 1);
+          --text-champagne-pink: hsla(23, 61%, 86%, 1);
+          --text-purple: hsla(267, 100%, 63%, 1);
+
+          /* border color */
+          --border-space-cadet: hsl(240, 45%, 17%);
+          --border-purple-alpha-30: hsla(267, 100%, 63%, 0.3);
+
+          /**
+           * TYPOGRAPHY
+           */
+
+          /* font family */
+          --fontFamily-oxanium: "Oxanium", cursive;
+          --fontFamily-work-sans: "Work Sans", sans-serif;
+
+          /* font size */
+          --fontSize-1: 3.6rem;
+          --fontSize-2: 2.4rem;
+          --fontSize-3: 2rem;
+          --fontSize-4: 1.7rem;
+          --fontSize-5: 1.6rem;
+          --fontSize-6: 1.5rem;
+          --fontSize-7: 1.4rem;
+          --fontSize-8: 1.2rem;
+
+          /* font weight */
+          --weight-regular: 400;
+          --weight-semiBold: 600;
+          --weight-bold: 700;
+
+          /**
+           * SPACING
+           */
+
+          --section-spacing: 60px;
+
+          /**
+           * BOX SHADOW
+           */
+
+          --shadow: 0px 2px 5px 0px hsla(0, 0%, 0%, 0.2);
+
+          /**
+           * BORDER RADIUS
+           */
+
+          --radius-circle: 50%;
+          --radius-5: 5px;
+          --radius-3: 3px;
+
+          /**
+           * CLIP PATH
+           */
+
+          --clip-path-1: polygon(0 0, 100% 0, 100% 0, 0 0);
+          --clip-path-2: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+          --clip-path-3: polygon(0% 0%, 90% 0, 100% 30%, 100% 100%, 0 100%);
+          --clip-path-4: polygon(90% 0, 100% 40%, 100% 100%, 0 100%, 0 0);
+          --clip-path-5: polygon(100% 0, 100% 100%, 10% 100%, 0 60%, 0 0);
+          --clip-path-6: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 40%);
+          --clip-path-7: polygon(100% 0, 100% 60%, 90% 100%, 0 100%, 0 0);
+          --clip-path-8: polygon(0% 0%, 70% 0, 100% 30%, 100% 100%, 0 100%);
+          --clip-path-9: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+
+          /**
+           * TRANSITION
+           */
+
+          --transition-1: 250ms ease;
+          --transition-2: 500ms ease;
+          --cubic-out: cubic-bezier(0.05, 0.83, 0.52, 0.97);
+        }
+
+        /*-----------------------------------*\
+          #RESET
+        \*-----------------------------------*/
+
+        *,
+        *::before,
+        *::after {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        li {
+          list-style: none;
+        }
+
+        a,
+        img,
+        time,
+        span,
+        input,
+        button,
+        textarea {
+          display: block;
+        }
+
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        img {
+          height: auto;
+        }
+
+        input,
+        button,
+        textarea {
+          background: none;
+          border: none;
+          font: inherit;
+        }
+
+        input,
+        textarea {
+          width: 100%;
+        }
+
+        button {
+          cursor: pointer;
+        }
+
+        address {
+          font-style: normal;
+        }
+
+        html {
+          font-size: 10px;
+          scroll-behavior: smooth;
+        }
+
+        body {
+          background-color: var(--bg-dark-purple);
+          background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C27B0' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          color: var(--text-gainsboro);
+          font-family: var(--fontFamily-oxanium);
+          font-size: var(--fontSize-4);
+          font-weight: var(--weight-regular);
+          line-height: 1.6;
+          overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background-color: var(--bg-dark-purple);
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background-color: var(--bg-purple);
+        }
+
+        /*-----------------------------------*\
+          #REUSED STYLE
+        \*-----------------------------------*/
+
+        .container {
+          max-width: 1200px;
+          margin-inline: auto;
+          padding-inline: 20px;
+        }
+
+        .has-before,
+        .has-after {
+          position: relative;
+          z-index: 1;
+        }
+
+        .has-before::before,
+        .has-after::after {
+          content: "";
+          position: absolute;
+        }
+
+        .title {
+          color: var(--text-white);
+        }
+
+        .h1,
+        .h3 {
+          line-height: 1.3;
+        }
+
+        .h1 {
+          font-size: var(--fontSize-1);
+          font-weight: var(--weight-semiBold);
+        }
+
+        .h2 {
+          font-size: var(--fontSize-2);
+          line-height: 1.4;
+        }
+
+        .h3 {
+          font-size: var(--fontSize-3);
+        }
+
+        .section-title {
+          text-align: center;
+          margin-block: 10px;
+          text-transform: uppercase;
+        }
+
+        .section-title .span {
+          display: inline;
+          color: var(--text-purple);
+        }
+
+        .btn {
+          position: relative;
+          background-image: var(--gradient-1);
+          color: var(--text-white);
+          font-size: var(--fontSize-6);
+          font-weight: var(--weight-semiBold);
+          max-width: max-content;
+          min-width: 180px;
+          height: 50px;
+          display: grid;
+          place-items: center;
+          padding-inline: 30px;
+          clip-path: var(--clip-path-3);
+          overflow: hidden;
+          transition: var(--transition-1);
+        }
+
+        .btn::before {
+          content: "";
+          position: absolute;
+          top: var(--top, 50%);
+          left: var(--left, 50%);
+          width: 250%;
+          padding-block-end: 250%;
+          background-color: var(--bg-purple);
+          transform: translate(-50%, -50%) scale(0);
+          border-radius: var(--radius-circle);
+          z-index: -1;
+          transition: transform var(--transition-2);
+        }
+
+        .btn:is(:hover, :focus-visible)::before {
+          transform: translate(-50%, -50%) scale(1);
+        }
+
+        .btn.secondary {
+          background: var(--bg-oxford-blue-alpha-90);
+          border: 1px solid var(--border-purple-alpha-30);
+          clip-path: var(--clip-path-4);
+        }
+
+        .w-100 {
+          width: 100%;
+        }
+
+        .section {
+          padding-block: var(--section-spacing);
+        }
+
+        /*-----------------------------------*\
+          #PROFILE STYLES
+        \*-----------------------------------*/
+
+        .profile-hero {
+          padding-block: 120px 80px;
+          text-align: center;
+          position: relative;
+        }
+
+        .profile-hero::before {
+          background-image: var(--gradient-2);
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          z-index: 1;
+        }
+
+        .profile-header {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 40px;
+          margin-bottom: 40px;
+          flex-wrap: wrap;
+        }
+
+        .avatar-container {
+          position: relative;
+        }
+
+        .avatar {
+          width: 150px;
+          height: 150px;
+          border-radius: var(--radius-circle);
+          border: 4px solid var(--bg-purple);
+          background: var(--bg-oxford-blue);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 4.8rem;
+          color: var(--text-purple);
+          box-shadow: var(--shadow);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .avatar::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background-image: var(--gradient-1);
+          opacity: 0.1;
+          transition: var(--transition-1);
+        }
+
+        .avatar:hover::before {
+          opacity: 0.2;
+        }
+
+        .status-indicator {
+          position: absolute;
+          bottom: 10px;
+          right: 10px;
+          width: 25px;
+          height: 25px;
+          background: var(--bg-purple);
+          border-radius: var(--radius-circle);
+          border: 4px solid var(--bg-dark-purple);
+          box-shadow: 0 0 15px var(--bg-purple);
+        }
+
+        .profile-info h1 {
+          font-size: var(--fontSize-1);
+          margin-bottom: 15px;
+          background-image: var(--gradient-1);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .profile-meta {
+          display: flex;
+          gap: 30px;
+          justify-content: center;
+          flex-wrap: wrap;
+          margin-bottom: 20px;
+        }
+
+        .meta-item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: var(--fontSize-5);
+          font-weight: var(--weight-semiBold);
+          color: var(--text-champagne-pink);
+        }
+
+        .meta-icon {
+          color: var(--text-purple);
+          font-size: 2rem;
+        }
+
+        .level-progress {
+          max-width: 400px;
+          margin: 20px auto;
+        }
+
+        .progress-label {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 8px;
+          font-size: var(--fontSize-7);
+          color: var(--text-champagne-pink);
+        }
+
+        .progress-bar {
+          width: 100%;
+          height: 12px;
+          background: var(--bg-oxford-blue);
+          border-radius: 6px;
+          overflow: hidden;
+          border: 1px solid var(--border-purple-alpha-30);
+        }
+
+        .progress-fill {
+          height: 100%;
+          background-image: var(--gradient-1);
+          border-radius: 6px;
+          transition: width var(--transition-2);
+          position: relative;
+        }
+
+        .progress-fill::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+          animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+
+        .controls {
+          display: flex;
+          gap: 20px;
+          justify-content: center;
+          flex-wrap: wrap;
+          margin-top: 30px;
+        }
+
+        /*-----------------------------------*\
+          #STATS SECTION
+        \*-----------------------------------*/
+
+        .stats-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 30px;
+          margin-bottom: 60px;
+        }
+
+        .stat-card {
+          background-color: var(--bg-oxford-blue-alpha-90);
+          box-shadow: var(--shadow);
+          border: 1px solid var(--border-purple-alpha-30);
+          border-radius: var(--radius-5);
+          padding: 30px;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+          transition: transform var(--transition-1);
+        }
+
+        .stat-card::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background-image: var(--gradient-1);
+        }
+
+        .stat-card:hover {
+          transform: translateY(-5px);
+        }
+
+        .stat-number {
+          font-size: var(--fontSize-1);
+          font-weight: var(--weight-bold);
+          color: var(--text-white);
+          margin-bottom: 10px;
+          background-image: var(--gradient-1);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .stat-label {
+          font-size: var(--fontSize-5);
+          color: var(--text-champagne-pink);
+          text-transform: uppercase;
+          font-weight: var(--weight-semiBold);
+        }
+
+        /*-----------------------------------*\
+          #GAMES & ACHIEVEMENTS
+        \*-----------------------------------*/
+
+        .profile-section {
+          background-color: var(--bg-oxford-blue-alpha-90);
+          box-shadow: var(--shadow);
+          border: 1px solid var(--border-purple-alpha-30);
+          border-radius: var(--radius-5);
+          padding: 40px;
+          margin-bottom: 40px;
+          position: relative;
+        }
+
+        .profile-section::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background-image: var(--gradient-1);
+        }
+
+        .section-header {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          margin-bottom: 30px;
+        }
+
+        .section-icon {
+          font-size: 3rem;
+          color: var(--text-purple);
+        }
+
+        .section-header h2 {
+          color: var(--text-white);
+          font-size: var(--fontSize-2);
+          font-weight: var(--weight-semiBold);
+          text-transform: uppercase;
+        }
+
+        .games-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 20px;
+        }
+
+        .game-card {
+          background: var(--bg-dark-purple);
+          border: 1px solid var(--border-purple-alpha-30);
+          border-radius: var(--radius-5);
+          padding: 20px;
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          transition: all var(--transition-1);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .game-card::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 4px;
+          background-image: var(--gradient-1);
+        }
+
+        .game-card:hover {
+          transform: translateX(10px);
+          border-color: var(--bg-purple);
+        }
+
+        .game-icon {
+          width: 60px;
+          height: 60px;
+          background-image: var(--gradient-1);
+          border-radius: var(--radius-5);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: var(--weight-bold);
+          color: var(--text-white);
+          font-size: var(--fontSize-4);
+          flex-shrink: 0;
+        }
+
+        .game-info h3 {
+          color: var(--text-white);
+          font-size: var(--fontSize-4);
+          font-weight: var(--weight-semiBold);
+          margin-bottom: 5px;
+        }
+
+        .game-meta {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;
+        }
+
+        .game-meta span {
+          font-size: var(--fontSize-7);
+          color: var(--text-champagne-pink);
+        }
+
+        .game-rank {
+          color: var(--text-purple);
+          font-weight: var(--weight-semiBold);
+        }
+
+        /*-----------------------------------*\
+          #ACHIEVEMENTS
+        \*-----------------------------------*/
+
+        .achievements-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 20px;
+        }
+
+        .achievement {
+          background: var(--bg-dark-purple);
+          border: 1px solid var(--border-purple-alpha-30);
+          border-radius: var(--radius-5);
+          padding: 20px;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          transition: all var(--transition-1);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .achievement.unlocked {
+          border-color: var(--bg-purple);
+        }
+
+        .achievement.unlocked::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 4px;
+          background-image: var(--gradient-1);
+        }
+
+        .achievement-icon {
+          width: 50px;
+          height: 50px;
+          background-image: var(--gradient-1);
+          border-radius: var(--radius-circle);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2.4rem;
+          flex-shrink: 0;
+        }
+
+        .achievement.locked .achievement-icon {
+          background: var(--bg-oxford-blue);
+          color: var(--text-gainsboro);
+          opacity: 0.5;
+        }
+
+        .achievement-info h4 {
+          color: var(--text-white);
+          font-size: var(--fontSize-5);
+          font-weight: var(--weight-semiBold);
+          margin-bottom: 5px;
+        }
+
+        .achievement.locked .achievement-info h4 {
+          opacity: 0.6;
+        }
+
+        .achievement-description {
+          font-size: var(--fontSize-7);
+          color: var(--text-champagne-pink);
+        }
+
+        .achievement.locked .achievement-description {
+          opacity: 0.5;
+        }
+
+        /*-----------------------------------*\
+          #MODAL
+        \*-----------------------------------*/
+
+        .modal {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.8);
+          z-index: 1000;
+          backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: var(--bg-oxford-blue);
+          padding: 40px;
+          border-radius: var(--radius-5);
+          width: 90%;
+          max-width: 500px;
+          border: 1px solid var(--border-purple-alpha-30);
+          box-shadow: var(--shadow);
+        }
+
+        .modal-content::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background-image: var(--gradient-1);
+        }
+
+        .close {
+          position: absolute;
+          top: 15px;
+          right: 20px;
+          font-size: 3rem;
+          cursor: pointer;
+          color: var(--text-purple);
+          transition: var(--transition-1);
+        }
+
+        .close:hover {
+          color: var(--text-white);
+        }
+
+        .modal h2 {
+          color: var(--text-white);
+          margin-bottom: 30px;
+          text-transform: uppercase;
+        }
+
+        .input-group {
+          margin-bottom: 20px;
+        }
+
+        .input-group label {
+          display: block;
+          margin-bottom: 8px;
+          color: var(--text-purple);
+          font-size: var(--fontSize-5);
+          font-weight: var(--weight-semiBold);
+          text-transform: uppercase;
+        }
+
+        .input-group input,
+        .input-group select {
+          width: 100%;
+          padding: 15px;
+          background: var(--bg-dark-purple);
+          border: 1px solid var(--border-purple-alpha-30);
+          border-radius: var(--radius-3);
+          color: var(--text-white);
+          font-size: var(--fontSize-5);
+          transition: var(--transition-1);
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+          outline: none;
+          border-color: var(--bg-purple);
+          box-shadow: 0 0 10px var(--bg-purple-alpha-30);
+        }
+
+        .input-group input::placeholder {
+          color: var(--text-gainsboro);
+          opacity: 0.6;
+        }
+
+        /*-----------------------------------*\
+          #RESPONSIVE
+        \*-----------------------------------*/
+
+        @media (max-width: 768px) {
+          .profile-header {
+            flex-direction: column;
+            text-align: center;
+          }
+
+          .profile-meta {
+            flex-direction: column;
+            gap: 15px;
+          }
+
+          .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+          }
+
+          .games-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .achievements-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .controls {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .container {
+            padding-inline: 15px;
+          }
+
+          .profile-section {
+            padding: 25px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .avatar {
+            width: 120px;
+            height: 120px;
+            font-size: 3.6rem;
+          }
+
+          .profile-info h1 {
+            font-size: 2.8rem;
+          }
+
+          .stats-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Hero Section -->
+        <section class="profile-hero has-before">
+            <div class="profile-header">
+                <div class="avatar-container">
+                    <div class="avatar" id="playerAvatar">🎮</div>
+                    <div class="status-indicator"></div>
+                </div>
+                <div class="profile-info">
+                    <h1 class="title" id="playerName">rohit</h1>
+                    <div class="profile-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">⭐</span>
+                            <span>Level <span id="playerLevel">45</span></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">🏆</span>
+                            <span id="playerRank">Diamond</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📅</span>
+                            <span>Joined <span id="joinDate">Aug 2025</span></span>
+                        </div>
+                    </div>
+                    <div class="level-progress">
+                        <div class="progress-label">
+                            <span>Level Progress</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="levelProgress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn" onclick="openEditProfile()">Edit Profile</button>
+                <button class="btn secondary" onclick="addGame()">Add Game</button>
+                <!--<button class="btn secondary" onclick="exportData()">Export Data</button>-->
+                <button class="btn secondary" onclick="switchProfile()">Switch Player</button>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalGames">12</div>
+                    <div class="stat-label">Game Played</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalHours">342</div>
+                    <div class="stat-label">Hours Played</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalAchievements">28</div>
+                    <div class="stat-label">Achievements</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="winRate">78%</div>
+                    <div class="stat-label">Win Rate</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Games Section -->
+        <section class="profile-section">
+            <div class="section-header">
+                <span class="section-icon">🎮</span>
+                <h2>Recent Games</h2>
+            </div>
+            <div class="games-grid" id="gamesGrid">
+                <!-- Games will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section class="profile-section">
+            <div class="section-header">
+                <span class="section-icon">🏆</span>
+                <h2>Achievements</h2>
+            </div>
+            <div class="achievements-grid" id="achievementsGrid">
+                <!-- Achievements will be populated by JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditProfile()">&times;</span>
+            <h2 class="title">Edit Profile</h2>
+            <div class="input-group">
+                <label>Player Name</label>
+                <input type="text" id="editName" placeholder="Enter player name">
+            </div>
+            <div class="input-group">
+                <label>Avatar</label>
+                <select id="editAvatar">
+                    <option value="🎮">🎮 Gaming</option>
+                    <option value="⚔️">⚔️ Warrior</option>
+                    <option value="🏹">🏹 Archer</option>
+                    <option value="🧙">🧙 Wizard</option>
+                    <option value="
